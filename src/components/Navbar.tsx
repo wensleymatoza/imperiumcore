@@ -16,7 +16,7 @@ const Navbar = () => {
   return (
     <>
     <nav>
-        <div className="flex gap-x-5 justify-end p-2 border-2 rounded-b-2xl">
+        <div className="flex gap-x-5 justify-center p-2 border-2 rounded-b-2xl mx-70 ">
         {navItems.map((n) => <Link to={n.href}><h2>{n.name}</h2></Link>)}
         </div>
     </nav>
