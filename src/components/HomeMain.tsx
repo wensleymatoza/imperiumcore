@@ -1,7 +1,7 @@
 import {useState} from 'react'
 
 type TodoItem = {
-  id: string
+  id: number
   title:string
   description:string
 }
@@ -19,12 +19,19 @@ const HomeMain = () => {
     const d = description.trim()
 
     if (!t) return
+    const newItem: TodoItem = {
+      id: Date.now(),
+      title: t,
+      description: d
   }
 
   setItem((prev) => [newItem, ...prev])
   setTitle('')
   setDescription('')
 
+  if (!t) return 
+
+  }
   return (
     <main>
       <div className="flex border-2 p-2 m-2 rounded-2xl min-h-screen overflow-x-auto ">
