@@ -36,6 +36,7 @@ const HomeMain = () => {
     <main>
       <div className="flex border-2 p-2 m-2 rounded-2xl min-h-screen overflow-x-auto ">
         <div className="flex border-2 p-2 m-2 flex-col rounded-2xl h-fit bg-yellow-100">
+        <form onSubmit={onSubmit} className='flex p-2 m-2 flex-col rounded-2xl h-fit bg-yellow-600 min-w-320px'>
           
           <label htmlFor='todo_name' className="inline-flex border-2 p-2 m-2 w-fit rounded-2xl active:scale-105 transition ease-out bg-amber-200 hover:bg-blue-200 active:bg-green-300">Todo</label>
           <input id= 'todo_name' className="inline-flex border-2 p-2 m-2 rounded-2xl h-fit" placeholder="What to do......"/>
@@ -53,7 +54,7 @@ const HomeMain = () => {
 
 
 
-
+        </form>
         </div>  
 
         <div className="border-2 flex flex-1 rounded-2xl p-2 flex-col">
