@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import TodoApp from './TodoApp'
 //create type for TODO item
 type TodoItem = {
   id: number
@@ -106,7 +107,9 @@ const HomeMain = () => {
         </div>
       </div>
 
-      <div className="flex border-2 p-2 m-2 rounded-2xl min-h-screen"></div>
+      <div className="flex border-2 p-2 m-2 rounded-2xl min-h-screen">
+            <TodoApp />
+      </div>
     </main>
   )
 }
