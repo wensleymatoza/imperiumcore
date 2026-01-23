@@ -5,19 +5,34 @@ import React, { useState } from 'react'
 const TodoApp = () => {
   const [isOn, setIsOn] = useState(false)
   const [checked, setChecked] = useState(false)
+  const [isOpen, setIsOpen] = useState(false)
 
   const colorSwitch = () => {
     setIsOn((prev) => !prev)
   }
   return (
-    <label>
-      <input
-        type="checkbox"
-        checked={checked}
-        onChange={e => setChecked(e.target.checked)}
-      />
-      {checked ? "Accepted" : "Not accepted"}
-    </label>
+    <>
+      <button onClick={() => setIsOpen(true)}>
+        Open Modal
+      </button>
+
+      {isOpen && (
+        <div
+          className="overlay"
+          onClick={() => setIsOpen(false)}
+        >
+          <div
+            className="modal"
+            onClick={e => e.stopPropagation()}
+          >
+            <button onClick={() => setIsOpen(false)}>
+              X
+            </button>
+            <p>Modal content</p>
+          </div>
+        </div>
+      )}
+  </>
   )
 }
 

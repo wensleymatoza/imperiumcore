@@ -10,33 +10,53 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as PagesIndexRouteImport } from './routes/pages/index'
+import { Route as PagesButtonExampleRouteImport } from './routes/pages/ButtonExample'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PagesIndexRoute = PagesIndexRouteImport.update({
+  id: '/pages/',
+  path: '/pages/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PagesButtonExampleRoute = PagesButtonExampleRouteImport.update({
+  id: '/pages/ButtonExample',
+  path: '/pages/ButtonExample',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/pages/ButtonExample': typeof PagesButtonExampleRoute
+  '/pages': typeof PagesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/pages/ButtonExample': typeof PagesButtonExampleRoute
+  '/pages': typeof PagesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/pages/ButtonExample': typeof PagesButtonExampleRoute
+  '/pages/': typeof PagesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/pages/ButtonExample' | '/pages'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/pages/ButtonExample' | '/pages'
+  id: '__root__' | '/' | '/pages/ButtonExample' | '/pages/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  PagesButtonExampleRoute: typeof PagesButtonExampleRoute
+  PagesIndexRoute: typeof PagesIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +68,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/pages/': {
+      id: '/pages/'
+      path: '/pages'
+      fullPath: '/pages'
+      preLoaderRoute: typeof PagesIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pages/ButtonExample': {
+      id: '/pages/ButtonExample'
+      path: '/pages/ButtonExample'
+      fullPath: '/pages/ButtonExample'
+      preLoaderRoute: typeof PagesButtonExampleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  PagesButtonExampleRoute: PagesButtonExampleRoute,
+  PagesIndexRoute: PagesIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
