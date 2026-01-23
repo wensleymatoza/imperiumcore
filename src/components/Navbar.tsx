@@ -10,7 +10,8 @@ export const navItems:Navitem[] = [
     {name:'About', href:'/about'},
     {name:'Products', href:'/products'},
     {name:'Members', href:'/members'},
-    {name:'Login', href:'/login'}
+    {name:'Login', href:'/login'},
+    {name:'Component Practice', href:'/pages'}
 ]
 const Navbar = () => {
   return (
