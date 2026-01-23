@@ -10,53 +10,54 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as PagesIndexRouteImport } from './routes/pages/index'
-import { Route as PagesButtonExampleRouteImport } from './routes/pages/ButtonExample'
+import { Route as PagesButtonsIndexRouteImport } from './routes/pages/Buttons/index'
+import { Route as PagesButtonsButtonExampleRouteImport } from './routes/pages/Buttons/ButtonExample'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const PagesIndexRoute = PagesIndexRouteImport.update({
-  id: '/pages/',
-  path: '/pages/',
+const PagesButtonsIndexRoute = PagesButtonsIndexRouteImport.update({
+  id: '/pages/Buttons/',
+  path: '/pages/Buttons/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const PagesButtonExampleRoute = PagesButtonExampleRouteImport.update({
-  id: '/pages/ButtonExample',
-  path: '/pages/ButtonExample',
-  getParentRoute: () => rootRouteImport,
-} as any)
+const PagesButtonsButtonExampleRoute =
+  PagesButtonsButtonExampleRouteImport.update({
+    id: '/pages/Buttons/ButtonExample',
+    path: '/pages/Buttons/ButtonExample',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '/pages/ButtonExample': typeof PagesButtonExampleRoute
-  '/pages': typeof PagesIndexRoute
+  '/pages/Buttons/ButtonExample': typeof PagesButtonsButtonExampleRoute
+  '/pages/Buttons': typeof PagesButtonsIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '/pages/ButtonExample': typeof PagesButtonExampleRoute
-  '/pages': typeof PagesIndexRoute
+  '/pages/Buttons/ButtonExample': typeof PagesButtonsButtonExampleRoute
+  '/pages/Buttons': typeof PagesButtonsIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
-  '/pages/ButtonExample': typeof PagesButtonExampleRoute
-  '/pages/': typeof PagesIndexRoute
+  '/pages/Buttons/ButtonExample': typeof PagesButtonsButtonExampleRoute
+  '/pages/Buttons/': typeof PagesButtonsIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/pages/ButtonExample' | '/pages'
+  fullPaths: '/' | '/pages/Buttons/ButtonExample' | '/pages/Buttons'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/pages/ButtonExample' | '/pages'
-  id: '__root__' | '/' | '/pages/ButtonExample' | '/pages/'
+  to: '/' | '/pages/Buttons/ButtonExample' | '/pages/Buttons'
+  id: '__root__' | '/' | '/pages/Buttons/ButtonExample' | '/pages/Buttons/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  PagesButtonExampleRoute: typeof PagesButtonExampleRoute
-  PagesIndexRoute: typeof PagesIndexRoute
+  PagesButtonsButtonExampleRoute: typeof PagesButtonsButtonExampleRoute
+  PagesButtonsIndexRoute: typeof PagesButtonsIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -68,18 +69,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/pages/': {
-      id: '/pages/'
-      path: '/pages'
-      fullPath: '/pages'
-      preLoaderRoute: typeof PagesIndexRouteImport
+    '/pages/Buttons/': {
+      id: '/pages/Buttons/'
+      path: '/pages/Buttons'
+      fullPath: '/pages/Buttons'
+      preLoaderRoute: typeof PagesButtonsIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/pages/ButtonExample': {
-      id: '/pages/ButtonExample'
-      path: '/pages/ButtonExample'
-      fullPath: '/pages/ButtonExample'
-      preLoaderRoute: typeof PagesButtonExampleRouteImport
+    '/pages/Buttons/ButtonExample': {
+      id: '/pages/Buttons/ButtonExample'
+      path: '/pages/Buttons/ButtonExample'
+      fullPath: '/pages/Buttons/ButtonExample'
+      preLoaderRoute: typeof PagesButtonsButtonExampleRouteImport
       parentRoute: typeof rootRouteImport
     }
   }
@@ -87,8 +88,8 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  PagesButtonExampleRoute: PagesButtonExampleRoute,
-  PagesIndexRoute: PagesIndexRoute,
+  PagesButtonsButtonExampleRoute: PagesButtonsButtonExampleRoute,
+  PagesButtonsIndexRoute: PagesButtonsIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
