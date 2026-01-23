@@ -13,11 +13,12 @@ const Button = () => {
 
   return (
     <div className='Toggle'>
-      <button className='flex border-2 p-2 m-2 bg-blue-200 rounded-2xl' onClick={() => changeBgColor()}>
+
+
+      <div className={`flex flex-col ${bgColor} h-100 w-100 m-4 rounded-2xl items-center justify-center`}>
+              <button className='flex border-2 p-2 m-2 bg-blue-200 rounded-2xl' onClick={() => changeBgColor()}>
         Toggle Button
       </button>
-
-      <div className={`flex ${bgColor} h-100 w-100 m-4 rounded-2xl items-center justify-center`}>
             hello world
       </div>
     </div>
