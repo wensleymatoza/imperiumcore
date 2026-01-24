@@ -1,37 +1,19 @@
-import React, { useState } from 'react'
+
 // create a toggle button
 //
 
 const TodoApp = () => {
-  const [isOn, setIsOn] = useState(false)
-  const [checked, setChecked] = useState(false)
-  const [isOpen, setIsOpen] = useState(false)
 
-  const colorSwitch = () => {
-    setIsOn((prev) => !prev)
-  }
   return (
     <>
-      <button onClick={() => setIsOpen(true)}>
-        Open Modal
-      </button>
-
-      {isOpen && (
-        <div
-          className="overlay"
-          onClick={() => setIsOpen(false)}
-        >
-          <div
-            className="modal"
-            onClick={e => e.stopPropagation()}
-          >
-            <button onClick={() => setIsOpen(false)}>
-              X
-            </button>
-            <p>Modal content</p>
-          </div>
-        </div>
-      )}
+    <div className="flex border-2 min-h-svh w-screen bg-slate-700 text-white p-2">
+      <label htmlFor="input1 ">Check</label>
+        <input 
+          className="flex border-2 p-2 m-2 h-fit "
+          type="radio"
+          placeholder="Check this out"
+          id="input1"/>          
+    </div>
   </>
   )
 }
