@@ -7,6 +7,7 @@ const TodoApp = () => {
   return (
     <>
     <div className="flex border-2 min-h-svh w-screen bg-slate-700 text-white p-2">
+      {/* use figma design next after studying */}
       <label htmlFor="input1 ">Check</label>
         <input 
           className="flex border-2 p-2 m-2 h-fit "
