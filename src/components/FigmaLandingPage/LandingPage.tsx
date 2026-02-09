@@ -1,5 +1,9 @@
 import React from 'react'
 
+type CounterState = {
+  count: number
+  increment: () => void
+}
 const LandingPage = () => {
   return (
     <div>
