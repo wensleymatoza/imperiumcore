@@ -1,10 +1,10 @@
-import CarouseLButton from '@/components/ComponentPractice.tsx/CarouseLButton'
-import ConfigBasedButton from '@/components/ComponentPractice.tsx/ConfigBasedButton'
-import Button from '@/components/ComponentPractice.tsx/ToggleButton'
+import CarouseLButton from '@/components/componentpractice.tsx/CarouseLButton'
+import ConfigBasedButton from '@/components/componentpractice.tsx/ConfigBasedButton'
+import Button from '@/components/componentpractice.tsx/ToggleButton'
 import { createFileRoute } from '@tanstack/react-router'
 import { useState } from 'react'
 
-export const Route = createFileRoute('/pages/buttons/ButtonExample')({
+export const Route = createFileRoute('/pages/interactive_components/buttons/buttonexample')({
   component: RouteComponent,
 })
 

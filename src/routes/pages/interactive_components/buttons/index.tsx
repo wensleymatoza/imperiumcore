@@ -1,6 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router'
 
-export const Route = createFileRoute('/pages/buttons/')({
+export const Route = createFileRoute('/pages/interactive_components/buttons/')({
   component: RouteComponent,
 })
 
