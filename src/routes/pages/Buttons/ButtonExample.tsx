@@ -4,7 +4,7 @@ import Button from '@/components/ComponentPractice.tsx/ToggleButton'
 import { createFileRoute } from '@tanstack/react-router'
 import { useState } from 'react'
 
-export const Route = createFileRoute('/pages/Buttons/ButtonExample')({
+export const Route = createFileRoute('/pages/buttons/ButtonExample')({
   component: RouteComponent,
 })
 

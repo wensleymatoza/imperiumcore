@@ -11,7 +11,7 @@ export const navItems:Navitem[] = [
     {name:'Products', href:'/products'},
     {name:'Members', href:'/members'},
     {name:'Login', href:'/login'},
-    {name:'Component Practice', href:'/pages/Buttons'}
+    {name:'Pages', href:'/pages/'}
 ]
 const Navbar = () => {
   return (
