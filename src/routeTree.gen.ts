@@ -11,10 +11,6 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as PagesIndexRouteImport } from './routes/pages/index'
-import { Route as PagesInteractive_componentsNavigationAndLayoutIndexRouteImport } from './routes/pages/interactive_components/navigation-and-layout/index'
-import { Route as PagesInteractive_componentsButtonsIndexRouteImport } from './routes/pages/interactive_components/buttons/index'
-import { Route as PagesInteractive_componentsNavigationAndLayoutNavbarRouteImport } from './routes/pages/interactive_components/navigation-and-layout/navbar'
-import { Route as PagesInteractive_componentsButtonsButtonexampleRouteImport } from './routes/pages/interactive_components/buttons/buttonexample'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -26,90 +22,31 @@ const PagesIndexRoute = PagesIndexRouteImport.update({
   path: '/pages/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const PagesInteractive_componentsNavigationAndLayoutIndexRoute =
-  PagesInteractive_componentsNavigationAndLayoutIndexRouteImport.update({
-    id: '/pages/interactive_components/navigation-and-layout/',
-    path: '/pages/interactive_components/navigation-and-layout/',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const PagesInteractive_componentsButtonsIndexRoute =
-  PagesInteractive_componentsButtonsIndexRouteImport.update({
-    id: '/pages/interactive_components/buttons/',
-    path: '/pages/interactive_components/buttons/',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const PagesInteractive_componentsNavigationAndLayoutNavbarRoute =
-  PagesInteractive_componentsNavigationAndLayoutNavbarRouteImport.update({
-    id: '/pages/interactive_components/navigation-and-layout/navbar',
-    path: '/pages/interactive_components/navigation-and-layout/navbar',
-    getParentRoute: () => rootRouteImport,
-  } as any)
-const PagesInteractive_componentsButtonsButtonexampleRoute =
-  PagesInteractive_componentsButtonsButtonexampleRouteImport.update({
-    id: '/pages/interactive_components/buttons/buttonexample',
-    path: '/pages/interactive_components/buttons/buttonexample',
-    getParentRoute: () => rootRouteImport,
-  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/pages': typeof PagesIndexRoute
-  '/pages/interactive_components/buttons/buttonexample': typeof PagesInteractive_componentsButtonsButtonexampleRoute
-  '/pages/interactive_components/navigation-and-layout/navbar': typeof PagesInteractive_componentsNavigationAndLayoutNavbarRoute
-  '/pages/interactive_components/buttons': typeof PagesInteractive_componentsButtonsIndexRoute
-  '/pages/interactive_components/navigation-and-layout': typeof PagesInteractive_componentsNavigationAndLayoutIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/pages': typeof PagesIndexRoute
-  '/pages/interactive_components/buttons/buttonexample': typeof PagesInteractive_componentsButtonsButtonexampleRoute
-  '/pages/interactive_components/navigation-and-layout/navbar': typeof PagesInteractive_componentsNavigationAndLayoutNavbarRoute
-  '/pages/interactive_components/buttons': typeof PagesInteractive_componentsButtonsIndexRoute
-  '/pages/interactive_components/navigation-and-layout': typeof PagesInteractive_componentsNavigationAndLayoutIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/pages/': typeof PagesIndexRoute
-  '/pages/interactive_components/buttons/buttonexample': typeof PagesInteractive_componentsButtonsButtonexampleRoute
-  '/pages/interactive_components/navigation-and-layout/navbar': typeof PagesInteractive_componentsNavigationAndLayoutNavbarRoute
-  '/pages/interactive_components/buttons/': typeof PagesInteractive_componentsButtonsIndexRoute
-  '/pages/interactive_components/navigation-and-layout/': typeof PagesInteractive_componentsNavigationAndLayoutIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths:
-    | '/'
-    | '/pages'
-    | '/pages/interactive_components/buttons/buttonexample'
-    | '/pages/interactive_components/navigation-and-layout/navbar'
-    | '/pages/interactive_components/buttons'
-    | '/pages/interactive_components/navigation-and-layout'
+  fullPaths: '/' | '/pages'
   fileRoutesByTo: FileRoutesByTo
-  to:
-    | '/'
-    | '/pages'
-    | '/pages/interactive_components/buttons/buttonexample'
-    | '/pages/interactive_components/navigation-and-layout/navbar'
-    | '/pages/interactive_components/buttons'
-    | '/pages/interactive_components/navigation-and-layout'
-  id:
-    | '__root__'
-    | '/'
-    | '/pages/'
-    | '/pages/interactive_components/buttons/buttonexample'
-    | '/pages/interactive_components/navigation-and-layout/navbar'
-    | '/pages/interactive_components/buttons/'
-    | '/pages/interactive_components/navigation-and-layout/'
+  to: '/' | '/pages'
+  id: '__root__' | '/' | '/pages/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   PagesIndexRoute: typeof PagesIndexRoute
-  PagesInteractive_componentsButtonsButtonexampleRoute: typeof PagesInteractive_componentsButtonsButtonexampleRoute
-  PagesInteractive_componentsNavigationAndLayoutNavbarRoute: typeof PagesInteractive_componentsNavigationAndLayoutNavbarRoute
-  PagesInteractive_componentsButtonsIndexRoute: typeof PagesInteractive_componentsButtonsIndexRoute
-  PagesInteractive_componentsNavigationAndLayoutIndexRoute: typeof PagesInteractive_componentsNavigationAndLayoutIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -128,48 +65,12 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PagesIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/pages/interactive_components/navigation-and-layout/': {
-      id: '/pages/interactive_components/navigation-and-layout/'
-      path: '/pages/interactive_components/navigation-and-layout'
-      fullPath: '/pages/interactive_components/navigation-and-layout'
-      preLoaderRoute: typeof PagesInteractive_componentsNavigationAndLayoutIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/pages/interactive_components/buttons/': {
-      id: '/pages/interactive_components/buttons/'
-      path: '/pages/interactive_components/buttons'
-      fullPath: '/pages/interactive_components/buttons'
-      preLoaderRoute: typeof PagesInteractive_componentsButtonsIndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/pages/interactive_components/navigation-and-layout/navbar': {
-      id: '/pages/interactive_components/navigation-and-layout/navbar'
-      path: '/pages/interactive_components/navigation-and-layout/navbar'
-      fullPath: '/pages/interactive_components/navigation-and-layout/navbar'
-      preLoaderRoute: typeof PagesInteractive_componentsNavigationAndLayoutNavbarRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/pages/interactive_components/buttons/buttonexample': {
-      id: '/pages/interactive_components/buttons/buttonexample'
-      path: '/pages/interactive_components/buttons/buttonexample'
-      fullPath: '/pages/interactive_components/buttons/buttonexample'
-      preLoaderRoute: typeof PagesInteractive_componentsButtonsButtonexampleRouteImport
-      parentRoute: typeof rootRouteImport
-    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   PagesIndexRoute: PagesIndexRoute,
-  PagesInteractive_componentsButtonsButtonexampleRoute:
-    PagesInteractive_componentsButtonsButtonexampleRoute,
-  PagesInteractive_componentsNavigationAndLayoutNavbarRoute:
-    PagesInteractive_componentsNavigationAndLayoutNavbarRoute,
-  PagesInteractive_componentsButtonsIndexRoute:
-    PagesInteractive_componentsButtonsIndexRoute,
-  PagesInteractive_componentsNavigationAndLayoutIndexRoute:
-    PagesInteractive_componentsNavigationAndLayoutIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
