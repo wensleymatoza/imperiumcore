@@ -10,7 +10,7 @@ function RouteComponent() {
     <div className='flex min-h-screen bg-blue-200 justify-center'>
       <div className='flex flex-col min-w-svh border-2 bg-stone-100'>
     <Navbar />
-      <h1>Studying Java</h1>
+      <h1>Dying from Studying Java LOl</h1>
     </div>
     </div>
   )
